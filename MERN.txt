@@ -1,0 +1,24 @@
+1.- ECMAScript 6 no es nada mas que una nueva version de javascript es decir con una nueva sintaxis, pero por el momento no todos los navegadores entienden
+    esta nueva version es por ello que se debe utilizar transpiladores como webpack el cual traduce ECMAScript 6 en javascript comun.
+2.- jsx es una extencion de JavaScript el cual permite escribir codigo con una sintaxis de ECMAScript 6.
+3.- es totalmente posible desarrollar aplicaciones con react con una sintaxis comun de javascript pero realmente es algo complicado de entender y mantener el codigo
+    y ademas se hace mucha mas largo el codigo escrito, es por ello que react normalmente se la trabaja con ECMAScript 6.
+2.- webpack es un transpilador el cual traduce sintaxis jsx en javascript comun, ademas que webpack tiene complementos para traducir otro tipo de archivos como
+    css por ejemplo.
+3.- Recordemos que un archivo jsx ayuda a tener codigo mucho mas comprensible, es mas utilizando jsx es como si entariamos enbebiendo html dentro de
+    javascript pero en realidad no se esta escribiendo html sino son componentes de react que al final del dia solo es javascript, por lo cual no es posible
+    dar estilos css como normalmente se lo hace, para dar estilos css se debe instalar primero desde npm el paquete npm install style-loader y ademas npm
+    install css-loader y configurar el archivo webpack.config.js para que webpack pueda transpilar el codigo css y asi jsx pueda entender los estilos css,
+    una ver realizado los pasos anteriores recien se la puede invocar al archivo css dentro con la sintaxis jsx de esta forma import '../public/css/style.css'; 
+4.- nodemon es un modulo para que el servidor de node siempre este a la escucha de los cambios del programa y no asi estar reiniciando el servidor cada vez que
+    cambia el codigo.
+5.- webpack ademas de traspilar codigo jsx a js tiene una extencion wath que cumple la misma funcion que modemon con la diferencia de que este escucha
+    los cambios del codigo del frontend es decir cuando se hace cambios en la vista.
+6.- Module build failed (from ./node_modules/babel-loader/lib/index.js):Error: Plugin/Preset files are not allowed to export objects, only functions. Este error
+	se presenta al configurar babel ya que el comando npm install babel-loader instala a la fecha la version 8 y no es compatible con los demas archivos de babel
+	entonces lo que se debe se debe hacer es bajar la version de babel-loader a la 7 y para ello se debe ejecutar el comando npm i babel-loader@7.
+7.- webpack es en realidad el encargado de crear un archivo el cual guarda el codigo ya transpilado, el que realmente se encarga de transpilar el codigo es babel.
+8.- al transpilar un proyecto de node (node express) para hacer deploy (npm run start  -->comando que ejecuta el archivo ya transpilado), podemos tener un error,
+	se trata de error regeneratorRuntime el cual es una libreria que viene con babel-polyfill pero esta libreria a partir  de la version 7 de babel esta en desuso
+razon por la cual regeneratorRunTime no funciona especialmente cuando nuestro codigo a transpilar usa peticiones asyng/await.Para solucionar este error se debe de instalar
+regenerator-runtime (npm instal regenerator-runtime y npm install core-js) y ademas en el archivo index.js inportar import "core-js/stable"; import "regenerator-runtime/runtime";

@@ -1,0 +1,467 @@
+1.-al crear una tabla en SQL compact primero te pide el nombre y sus atributos
+2.- al crear una tabla de SQL server dentro del visual studio el nombre lo poner en el codigo ,
+   en la parte de abajo y luego debemos de presionar update o actualizar
+3.-para crear una tabla dentro de SQL server Express el nombre de tabla te lo pide al ultimo
+4.-Linq to SQL es una herramienta que permite realizar consultas en lenguaje C# como si fueran 
+   consultas nativas del lenguaje SQL
+5.- ADO.net es parte de Entity Framework que permite el enlace a datos de una DB creando asi
+    las tablas en CLASES para manipular de esta forma..dichas clases se encuentran dentro de nuestro modelo ADO
+    en una carpeta con extensio .tt
+6.- Entyti Framewor es un ORM (objet Relational Maping) mapeado de objeto relacional , que permite
+     la manipulacion de datos de la BD de forma visual ,en forma de clases .permitiendo asi muchas
+     ventajas de manipulacion de datos de SQL ..existen diversos ORM para cada tipo de lenguaje
+7.- Se comprobo que cuando creas una DB de tipo SQL server dentro de VS ..estas mismas tablas sepueden 
+      guardar en cualquier direccion de nuestro ordenador para luego arrastrarlos a SQL server Espress
+     y se combierten en tablas nativas de SQL Server
+8.- EL codigo en formato Razor es interpretado por este mismo motor a codigo Html
+9.- Cuando se hace una nueva relacion dentro de SQL Server Express,esposible actualizar esa relacion dentro nuestro ADO
+    haciendo clic derecho en cualquier parte del diagrama de ado menos ensima de una tabla y hacer clic en la obcion
+    actualizar desde base de datos
+10.- La extension de ADO es .edmx
+11.- La extension de una clase Linq to SQL es .dbml
+12.- La extension de un DB SQL server Compact es .sdf
+13.- La extencion de una DB de tipo SQL Server es .mdf
+14.- Cuando un formulario es creado desde una Accion a la cual se desea enviar los datos,ya No es necesario poner 
+     el action="" dentro del formulario ya que MVC sabe y envia directamente los datos de los inputs a dicho Action
+     es decir al Action o metodo q lo creo a dicho formulario...PERO si un formulario es creado por una Acion
+     o metodo a la cual No se desea enviar los datos y se lo quiere enviar a otro Action es necesario poner el 
+     action="nombre del metodo al que se decea envia los datos" y dentro del action ponemos el nombre
+     del metodo al que se decea envia los datos,OJO esto siempre y cuando dicho formulario se creado por un metodo
+     que este dentro del controlador que contiene el metodo al que se decea enviar los datos...PERO si ese metodo
+     No esta dentro de ese controlador ,entonces es necesario poner dentro del action="" del formularuio
+     el nombre del controlador y el nombre del metodo al que se pretende enviar dichos datos
+24.- La extension de un DataSet es .xsd
+25.- Al crear un controlador de tipo MVC4 tenemos las siguientes opciones:
+     ->nombre del controlador:cualquier nombre pero por convencion debe seguir la palabra Controller
+     ->  
+26.- cuando se crea una vista de alguna accion,esa vista pasa a ser la vista de todos los acciones que llevan
+     el mismo nombre de la accion creada en un principio
+27.- una vista puede ser creada de forma independiente (vista parcial) sin depender una accion
+28.- Si una vista es creada de forma independiente,dicha vista debe estar ubicada dentro de la carpeta que le corresponde
+     a la accion que lo llama a dicha vista...es decir no tiene que estar suelta
+29.- A continiacion se menciona los diferentes tipos de ActionResult que puede usar un proyecto ASP.NET MVC;
+     cabe aclarar que las clases que voy a mencionar a continuación derivan o heredan de la clase ActionResult:
+
+ViewResult: Usada para retornar un vista HTML, es la clase mas utilizada en un proyecto de este tipo.
+PartialViewResult: Es similar a la case ViewResult, pero esta retorna un resultado de forma parcial.
+ContentResult: Sirve para retornar cualquier tipo de contenido. ES muy usado para retornar archivo de formato plano como XML (text/xml) .
+EmptyResult: Es el equivalente a los metodos sin retorno (void).
+FileResult: Usado para retornar un contenido binario (pdf, xls, ese … etc).
+HttpUnauthorizedResult: Usado para redireccionar a usuarios que no tiene permiso suficientes para ejecutar la acción.
+JavaScriptResult: Usado para retornar contenido JavaScript.
+JsonResult: Usado para retornar contenido con el formato JSON.
+RedirectResult: Sirve para redireccionar a otra URL (código 302 y 301 de HTTP)
+RedirectToRouteResult: Usado para redireccionar de una URL a otra.
+30.- Diferencia entre Linq to SQL y EF en realidad hay diferencias entre ellas pero hay que remarcar que se complementan entre si
+
+Linq si es que lo nombras solo, es un lenguaje de consulta de objectos, pero no necesariamente tiene que trabajar con una base de datos, 
+puedes hacer consultas a DataSet, colecciones, listas genericas, y tambien a XML. como veras en estos links:
+
+     LINQ to XML
+     LINQ to Objects
+     LINQ to DataSet
+     LINQ to DataSet Samples 
+     Una pregunta común .
+     LINQ to SQL se creó con el desarrollo rápido de aplicaciones (RAD ) en mente. El Marco de la entidad fue creada con el desarrollo empresarial en mente.
+     LINQ to SQL trabaja con los objetos de una base de datos. El Entity Framework trabaja con el modelo conceptual de una base de datos. Como se explicó anteriormente , se trata de dos cosas diferentes . 
+     Esto significa también que el Entity Framework permite realizar consultas en las relaciones entre las entidades , la cartografía de las entidades individuales a varias tablas, y así sucesivamente.
+     LINQ to SQL tiene la capacidad de llamar a procedimientos almacenados , pero no los mapear los resultados. El Entity Framework es todo acerca de resultados de los mapas a entidades .
+     Supongo que se trabaja con algo además de SQL Server?
+31.- Las acciones se distinguen por su nombre, sin tener en cuenta sus parámetros. 
+     Eso significa que un controlador no puede definir dos veces la misma acción con parámetros distintos, 
+     salvo que se responda a verbos http distintos (p.ej. una acción responda a GET y otra a POST).
+32.- La tabla de rutas mapea una URL a una única acción de un controlador.
+33.- cuando existe dos ActionResult (metodos) dentro de un controlador ,lo normal es que el primer ActionResult
+     por lo general get,es el que muestra el formulario y el segundo por el metodo Post es el que recibe los valores
+     y los vuelve a mostrar en otra vista.
+34.- ActionResult [httpGet] es el que llama la vista y ActionResult [httpPost] es quien la recoje los valores
+     de la vista llamada y los procesa para luego pasarlas nuevamente a la misma vista o puede ser a otra con...
+     return ("otraVista"); no es necesario poner [httpGet] en los ActionResult el compilador los reconoce como tal
+35.- Ahora, cuando haces un POST la vista sabe a que controlador por defecto enviar, porque en la definición del 
+     formulario el método BeginForm por defecto conoce el destino y todo esto por un tema de convención sobre la 
+     configuración
+36.- Un controlador (Get) NO devuelve los valores a su vista osea a la vista con el mismo nombre de ese controlador
+     sino que devuelve valores a la vista que retorna (return) puede ser una vista parcial por ejemplo.
+37.- (LINQ)  Language-Integrated Query osea integracion de un lenguaje de consultas a un lenguaje de programacion
+     permite usar sintaxis de un lenguaje de programacion permitiendo asi al programador el uso de Intellisense
+     ademas permite  la realizacion de consultas a varios origenes de datos :(es decir, un origen de datos que 
+     implementa la interfaz IEnumerable), como estructuras de datos en memoria, documentos XML, 
+     bases de datos SQL y objetos DataSet
+38.- Existen tres tecnologías Language-Integrated Query (LINQ) de ADO.NET independientes: LINQ to DataSet, 
+     LINQ to SQL y LINQ to Entities. LINQ to DataSet proporciona consultas más ricas y optimizadas de DataSet, 
+     LINQ to SQL permite consultar directamente los esquemas de base de datos de SQL Server y 
+     LINQ to Entities permite consultar un Entity Data Model.
+39.- La diferencia de un motor y un gestor de DB es que el gestor de DB simplemente se la puede considera como la parte
+     visual , la interfaz del motor que nos permite manupular cierta DB crear eliminar de forma visual.
+     mientras que el motor se la puede considerar como el compilador de un lenguaje de programacion,es el encargado
+     de y tiene la capacidad de interpretar codigo SQL en otras palabras no la podemos ver.
+40.- Las cuatro instrucciones que componen el lenguaje de manipulación (solo manipulacion)
+     de datos son las siguientes SELECT INSERT DELETE UPDATE
+41.- La necesidad de crear un DataSet para realizar un reporte es que al crear un nuevo reporte se nos pide una fuente
+     de datos para generar dicho reporte y para ello solo soporta DataSet como fuente de datos
+42.- Un procedimiento almacenado es mucha herramienta para realizar un simple select ,lo mejor seria realizar un avista
+     o si requerimos parametros puede ser una funcion
+43.- Existen 3 formas de devolver un valor desde el controlador hacia la vista,una de ellas es ViewBag.clave donde clave
+     puede ser cualquier nombre que identifique nuestro dato y otro es ViewData["clave"]="hola mundo" donde clave tambien
+     puede ser cualquier nombre.Ambos son llamados desde la vista de la siguiente forma @ViewData["clave"] es decir
+     antesediendo una @ ,ademas que si declaro un ViewBag en el controlador lo puedo llamar desde la vista con un ViewData
+     y viceversa, el ultimo es ViewModel que practicamente es el modelo u objeto que retornamos desde el controlador
+44.- Es importante saber que un solo DataSet permite realizar varios reportes no es necesario crear otro DataSet 
+     ya que a ese mismo DataSet podemos arrastrar diferentes tablas y procedimientos almacenados
+45.- Una consulta donde con inner join se une ambas tablas y con on se relacionan ambas tablas con sus atributos de relacion
+     select Persona.Nombre,Fichada.FechaIng,Fichada.FechaSal
+     from Fichada inner join Persona on Fichada.Idper=Persona.IdPer
+     where Fichada.FechaIng >= @fi and Fichada.FechaSal <= @fs and Persona.IdPer=@id
+46.- Un DataSet entiendase como una representacion de la DB en memoria, ¿pero para que realmente sirve?Sirve para alimentar
+     objetos de VS como controles,combobox,textbox y mas propiamente reportes (ReportViewer) etc El DAtaSet extrae datos
+     de la DB para mostrarlos dentro de dichos objetos.Tambien se muchas veces se les utiliza para gestionar el borrado
+     insercion de datos.
+47.- Cuando una tabla de la DB pasa a un DataSet, esa tabla ya no es una tabla de la DB en si ,sino que se podria decir
+     que emula dicha tabla de la DB ,es mas ya no se llama tabla sino que se le denomina DataTable,estos DataTables
+     tienen (cada uno de ellos)un TableAdapter en la parte inferior de cada uno de estos DataTable,Los TableAdapter no
+     mas que la conexion que realizan entre los DataTable y las tablas reales de la DB,cada uno de estos TableAdapter
+     tienes metodos por defecto uno solo la cual permite mostrar todos los atributos del DataTable ojo que sin este metodo
+     no podria mostrarse nada, ademas este metodo se la puede modificar a nuestras necesidades o incluso crear mas metodos
+48.- Cuando se crea un controller en modo "con permisos de lectura/escritura de los action y vistas usando EF"
+     lo que se genera es toooooodos los action (CRUD) mas sus respectivas Views en otras palabras se genera todo
+49.- Las propiedades por valor no aceptan valores null
+50.- Lo que hacen los grupos de aplicaciones en iis es dividir las aplicaciones con el objetivo de mejorar el rendimiento
+     en el sentido de que si una plicacion lanza algun error este no afectara a ninguna aplicacion que se encuentre 
+     en otro grupo ademas de poder arrancar con mas rapidez las aplicaciones.
+51.- ERROR ---->The SELECT permission was denied on the object 'Usuario', database 'DB', schema 'dbo'.---->(se denego los
+     permisos para el objeto usuario en la DB 'DB' esquema 'dbo' )este eeror lo solucione sando click derecho
+     en la base de datos DB ->propiedades->permisos->y tickear todos los permisos
+52.- Los WebForms tienen extencion aspx y si creamos en mvc una vista que no sea con motor razor sino aspx(c#) entonces
+     esta vista pasa a ser una webForms
+53.- Un GridView es una plantilla la cual sierve para mostrar datos de una DB, ademas de tener muchas opciones para 
+     habilitar como editar, seleccionar etc..
+54.- Existen en ASP.net tres tipos de controles htmlControls, serverControls y htmlServerControl donde el primero son controles
+     comunes de html, los del segundo tipo son controles propios de asp.net qu ecorren a lado del servidor, es por ello
+     q llevan en su sintaxis la palabra "runant=server" y los del tercer tipo son los mismos q el primero solo que estos
+     llevan añadico el runat=server la cual les permite ser editados desde el servidor pero no tienen la propiedad .Text
+     como los controles de servidor en su lugar se deve utilizar la propiedad .Value
+55.- Gracias a Razor q es motor que crear controles Html con facilidad.. podemos ver el Intelllisense de Visual Studio
+56.- Gracias a EF se puede trabajar de dos formas las cuales son ModelFirst=creas una DB desde VS,CodeFirst=creas las
+     tablas o DB a partir de codigo (c#) y por ultimo tenemos el DataFirst=Crear una DB desde SQLServer
+57.- Cuando se crea un formulario con Razor, debemos de especifivcar el controlador y su accion y ademas el metodo
+     post para enviar a un controlador y accion especifico... en caso no se haga lo antes mencionado ..el formulario
+     enviara los datos a su controlador por defecto es decir al controlador que lo llama a dicho formulario
+58.- Cuando se pone en la URL solamente el controlador y no su metodo..lo que va a cargar en el navegador es el 
+     Controlador y su medodo index..NO tomara en cuenta los demas ActionResult.
+59.- en asp.net MVC el Code-behind pasa a ser el controlador 
+60.- Cuando se usa controles de servidor en asp.net o MVC es logico NO usar un los vervos HTTP (GET y POST) para enviar datos 
+     del cliente al servidos, ya que como son controles a lado de servidor trabajan dentro del servidor y no a lado del cliente 
+61.- En cuanto a html SRC: (Source) especifica el origen de (una comunicacion) es decir busca una imagen un css etc;
+     en cambio HREF: (Referencia a Hiper Texto) Una referencia o enlace a otra pagina es decir a otro html.
+62.- A ASP.net MVC le vasta con que los nombres de los parametros que recibe cualquiera de sus Acciones o metodos dentro de 
+     un controlador tengan el MISMO nombre que los campos del formulario para enlazar los valores del formulario con los parámetros
+     es decir para recibiren el controlador los datos de los inputs del formulario. Pero que pasa si el formulario
+     tiene muuuchos inputs de tipo texto? ¿sera que la Accion tendria q recibir varios parametros? R.-se la puede
+     hacer de esa forma pero no es lo corecto y para hacer de la manera adecuada existe el Model Binding.
+63.- Model Binding Llamamos model binding a la capacidad de ASP.NET MVC de crear objetos (de clases nuestras) 
+     a partir de los parámetros que vengan en la petición.
+64.- if(ModelState.IsValid) esta condicion es para validar si todos los campos del formulario cumplen las condiciones
+     de los dataanotations de un modelo.tabla o clase. si no sde pone esta condicion entonces los dataanotations estarian
+     en vano. Los dataanotation funcionan si y solo si esta condicion esta declarada dentro de una accion
+65.- La diferencia en asp.net mvc de  @Html.EditorFor(model => model.detalle) con
+    <input type="text" name="detalle" /> es que @Html.EditorFor(model => model.detalle) mantiene su value dentro del input
+     despues de hacer submit. Mientas que <input type="text" name="detalle" /> lo deja vacio el value del input
+     tras hacer un submit (aun que esto es solucionable con otras erramientas como jquery) 
+66.- @Html.ValidationMessageFor(model => model.detalle) se pone dentro de un formulario para sacar el mensaje del
+     dataanotations. Si no tenemos declarado esta linea de codigo funcionara los dataanotations pero no saldra el mensaje
+     Ademas @Html.ValidationMessageFor(model => model.detalle) debe de estar si o si en una vista fuertemente tipada
+     y escrito en razor.
+67.- se comprobo que para que funcione el model bindig (creacion de un objeto a partir de los capos de un formulario)
+     NO es necesario que la vista donde se encuentra el formulario sea fuertemente tipada ni TAMPOCO es necesario
+     que el formulario este en razor. Todo puede ser HTML puro hasta los inputs
+68.- El IEnumerable< Billar.PEDIDO> (donde Billar es el nombre del proyecto y PEDIDO es el nombre de la tabla de la
+     cual se pretende crear la viata fuertemente tipada) se pone en las vistas fuertemente tipadas, por que estamos enviando
+     un tipo lista desde el controlador y para recibirlos es necesario al IEnumerable y ademas para mostrar en la vista
+     con un foreach de no ser asi foreach no funciona por que la variable creada del foreach es de tipo lista IEnumerable
+69.- un procedimineto almacenado siempre va a ser mucho mas rapido. ya que el procedimiento almacenado es precompilado
+     en el servidor del DB
+70.- un RETURN hace que un metodo o cualquier tipo de instruccion frene la ejecucion ,es decir no sigue con la 
+     siguiente linea de codigo, aun que este return se encuentre dentro de un if 
+71.- @Url.Action vs @Html.ActionLink La diferencia entre estos dos instrucciones razor es que "@Html.ActionLink genera una"
+     etique <a></a> comun y corriente de html y solo nos sirve para eso mientras que se podria decir que @Url.Action
+     es mucho mas poderoso , por que @Url.Action devuelve un /controlador/accion/id y por eso es mas poderoso ya que se
+     se puede utilizar en varios tipos de codigo como por ejemplo en un href de un <a> o en un post de un formulario
+     cuando se quiere enviar a un controlador diferente ..en fin donde sea es por eso que su uso va mas alla y es mas
+     poderoso
+72.- @Html.Action VS @Html.Partial Con @Html.Action puedo cargar cualquier controlador mas su accion 
+     "en cualquier parte de una vista y en cualquier vista"
+     no es necesario que sea una vista parcial para ser cargada ya que @Html.Action trabaja con un controlador y su accion
+     asi @Html.Action("accion","controlador").Mientras que @Html.Partial solo llama a un avista parcial es decir que una vista
+     que no haya sido creado desde una accion sino que es un avista sueltita por asi decirlo ya que su sintaxis es
+     @Html.Action("vistaParcial") como se puede ver no usa un controlador ni accion solo una vista parcial
+73.- Siempre debemos instanciar el contexto para poder realizar nuestras consultas LINQ to Entities, es decir la cadena
+     de conexion por ejemplo DBPIZARRONEntities obj=new DBPIZARRONEntities(); para el caso de la pizeria y con un objeto de tipo DBPIZARRONEntities
+     podemos acceder a las entidades,clases o tambien llamados tablas.
+74.- En asp.net MVC normalmente una accion retorna un actionResult pero que pasa si en vez de ActionResult nosotros ponemos
+     string o int y hacemos que devuelva unna cadena por ejemplo "hola mundo" o un entero?? si nos vamos desde el navegador a esa accion
+     vemos que realmente se devolvio una cadena es decir un "hola mundo"  o un entero si asi lo fuera, lo q se pretende demostrar
+     es que un ActionResult es un metodo comun y corriente solo con la diferencia de que este devulve una vista u otro 
+     tipo de objeto. 
+75.- Un principio de la encapsulacion es "solo los metodos tienen que ser capaces de modificar los valores de los atributos de un objeto" y no asi
+     tener directo acceso al atributo en si por eso se lo debe de declarar de solo lectura (get=lectura, set=escritura)
+76.- Si necesitas velocidad siempre usa operadores de cast ejemplo:
+     int a = (int)123.33 =>por que solo toma la parte entera y no llama a otros metodos
+     Si requieres aproximación y que te tengan en cuenta los casos especiales usa siempre Convert.
+     int a = Convert.ToInt32(123.33); => por que Convert redondea al valor mas proximo y para ello llama internamente a otro metodo, lo cual
+     hace que la respuesta sea un poco mas lenta.
+77.- "Solucionar este problema" Al actualizar mi .edmx (archivo ado) con la opcion click derecho y actualizar modelo desde
+     la base de datos no hay ningun problema y se visualiza la nueva tabla o tablas que se añaden al diagrama edmx
+     El problema es que no me genera la clase de dicha tabla actualizada en el archivo .tt y por ende para crear un controlador
+     con todo el crud, no me sale la tabla para crear dicho crud.
+78.- No existe ningun problema si le eliminas tu archivo .edmx(ado) y lo vuelves a crear.Este paso garantiza la creacion y generacion
+     de las nuevas tablas y clases en .tt. 
+79.- Se comprobo que para hacer un Model binding no es necesario que los campos del formulario esten en orden, es decir
+     el orden de los atributos de la clase o tabla a la cual se pretende guardar dichos datos. Al recibir un parametro
+     de Model binding por ejemplo (CLIENTE cliente) este parametro automaticamente ordena los atributos que vienen del
+     formulario, guardando asi los los valores a la tabla sin ningun problema.
+80.- @Html.ValidationMessageFor(model => model.Saldo) este codigo hace las validaciones de DATA ANOTATIONS y se comprobo 
+     que funciona de forma normal aun que su label y su input type="text" no esten hechos con razor sino con HTML puro 
+81.- Cuando se crea un metodo o accion con solo el verbo [HttpPost], solo se puede acceder a dicha accion mediante post
+     si se lo comvoca por get se lanza un error indicando que no encontro la direccion ya que su accion de get no esta declarada
+82.- Cuando un ajax envia datos al controlador y ese controlador tiene como fin devolver otros datos, el ajax
+     resive dichos datos en forma de parametro dentro de la funcion SUCCESS del ajax, es dentro de esta funcion (success)
+     donde se debe trabajar con los datos recibidos, si el controlador no devulve ningun valor al ajax igual se puede programar
+     cualquier trabajo dentro de esta funcion SUCCESS y se ejecutara siempre y cuando los datos del ajax hayn sido
+     procesados de forma satisfactoria por el controlador
+83.- Cuando se invoca a una vista mediante ajax (con el metodo .load) esa vista mostrada ya dentro de otra vista no 
+     funciona correctamente si se trata de una vista que sea de ingreso de datos como un formulario, se debe hacer
+     una invocacion ajax a una vista siempre y cuando dicha vista solo sea de ver datos como resultados, lista de personas
+     etc. ya que un formulario al ingresar los datos ya no funciona correctamente.
+84.- Cuando enviamos un objeto desde una accion hacia una vista con LINQ ese objeto es enviado en forma de consulta
+     por lo que es necesario recuperarlo desde la vista con un IEnumerable y IEnumerable requiere de foreach para
+     obtener los datos de ese objeto y mostrarlos. esta consulta no es lo mismo que devolver un ADMINISTRADOR.ToList()
+     por ejemplo, a ese ADMINISTRADOR es necesario convertirlo a lista para recuperarlo con un IEnumerable des de la vista
+     ya que devuelve todo los datos de la tabla y una consulta no.
+85.- Se comprobo que para enviar datos a una vista fuertemente tipada de una tabla X pero que dichos datos cotrrespondan
+     a otra tabla, una solucion es enviarla mediante viewBag y recuperarla de dicha vista mediante un foreach por ejemplo
+     dentro de un combobox
+86.- "Error Sql Server relacionado con la red o específico de la instancia" Este error se debe normalmente por que 
+     nuestro servidor no este iniciado,pero puede ser por otras causas tambien, si el servidor no esta iniciado lo que
+     se debe hacer es ingresar al administrador de configuracion de SQL server (manager configuration SQL Server buscar 
+     desde el buscador de Windows click en la primera opcion (SQL Server Services) mostrara un menu de servidores, click derecho en elservidor
+     a utilizar y click en Star o iniciar.
+87.- Una webService debe de estar alojado en un host y para consumirlo es necesario saber la url de la ubicacion de dicho
+     webService o sino ¿como supiera la aplicacion consumidora(otra plataforma) de donde va a consumir una webService?
+     en VS para consumir se debe hacer click en referencias dentro del proyecto consumidor y posteriormente click en add
+     services references, saldra un cuadro de dialogo e introducir la url del webServices en el textbox y encontrara el servicio.
+88.- En VS se encuentra habilitada la opcion de webService hasta el framework 3.5, para posteriores frameworks se encuentra
+     la opcion de WCF (windows comunication fundation) ya que microsoft maneja este termino por los cambios que se realizan
+     dentro de webServices, es decir que WCF es un poco mas desarrollada y robusta pero aun asi sigue cumpliendo la funcion
+     de un webService.
+89.- Una webService describe una forma estandarizada de integrar aplicaciones WEB mediante XML,SOAP,WSDL,UDDI sobre los
+     protocolos de internet (HTTP,SMTP,TCP,FTP etc.) donde XML es uasdo para describir datos, SOAP se ocupa pde la tranferencia
+     de archivos, WSDL se emplea para describir los servicios disponibles, UDDI se ocupa para conocer cuales son los servicios disponibles
+     Los webServices permiten la comunicacion y consumo de datos de aplicaciones desarrolladas en diferentes plataformas.
+90.- Una proppiedad en POO se la puede definir como una convinacion entre campo y metodo ya que una propiedad guarda informacion
+     al igual que un campo pero la tener un valor de lectura get y una de escritura set el comportamiento es como un metodo
+     ya que devuelve un valor  (lectura) y asigna un valor (escritura)
+91.- Se comprovo que una coneccion a una DB desde VS no tuene nada que ver con la creaccion de un archivo ado.edmx (generacion de clases con EF)
+     , es decir que la coneccion se la puede hacer de manera independiente y en ese caso al crear un ado.edmx ya no te pide la coneccion
+92.- Para hacer cambios en una tabla desde SQL Server, nueva consulta--->ALTER TABLE NombreTabla 
+     ALTER COLUMN NombreColumna varchar(6)
+93.- Tomar en cuenta al eliminar un registro desde el sistema (html)==> si se esta eliminando un registro la cual pertenece a una tabla
+     que contiene una clave foranea, esta se elimina con normalidad ya que solo esa cla ve es forastero. Pero si se quiere eliminar un registro
+     de una tabla la cual su "Id" de dicha tabla se en cuentra en otra tabla en condicion de clave foranea, este lanza un error
+     ya que dicho id esta relacionado con otra tabla al ser de 1 a muchos en condicion de foraneo y para ello se debe habilitar 
+     la eliminacion en cascada dentro de sql server.
+94.- ADO.net es la evolucion de ADO, ADO.net utiliza instrucciones u objetos como "Conneccion" para conectar a una DB, "Command" para emitir
+     comandos SQL a una DB, "dataset", "datareader" entre otros, ya con el pasar de tiempo evoluciono y llego EF el cual ya es
+     un ORM objet relation Maping, este ya combierte las tablas de SQL server en clases de C# que son completamente manipulables como clases
+     comunes y y si se quiere realizar consultas simplemente se utiliza Linq, un lenguaje de consultas 
+95.- se comprobo que desde xamarin si funciona un proyecto de tipo MVC.net ya que se hizo un ejemplo  
+96.- Un motor de DB siempre trabaja en su interior con un producto cartesiano (multiplicacion de un elemento de denrto de un conjunto A
+     por todos los elementos del conjunto B) razon por la cual muchas veces cuando se hace una query o consulta no se obtiene lo esperado
+     sino que en vex de esperar un solo dato se obtiene muuuchos datos, esto se debe al producto carteciano.
+97.- redundacia de datos = duplicidad o repeticion de datos.
+98.- Para un correcto funcionamiento de bootstrap es necesario incluir jquery antes de bootstrap, esto por la razon de que bootstrap
+     necesita de jquery para su correcta funcion, de no ser asi bootstrap no funcionara correctamente.
+99.- Para obtener datos desde una DB mediante Ajax una opcion buena, es utilizar PartialView (vistas parciales), es decir que desde el metodo
+     o accion [HttpPost] a donde va dirigido la url del ajax, obtendremos los datos de la DB para luego enviarlo a la vista parcial asi
+     return PartialView("nombreVistaParcial",datoObtenidoDesdeDB), y en la vista parcial obtenemos esos datos de manera normal, es decir si la accion
+     devuelve una lista entonces la vista parcial recivira un IEnumerable<>. Ahora el parametro que recibe la funcion success de ajax representa
+     tooooooooooda la Vista Parcial.
+100.- Uninstall-Package EntityFramework -Force    ---->para desinstalar entity framework
+101.- Install-Package EntityFramework -Version 5.0.0     ---->para instalar entity framework
+102.- Es completamente posible hacer un upload y download de cualquier tipo de archivo sin que estos archivos toquen la DB,  es decir que no seran
+      subidos a la DB sino que iran a una direccion de una carpeta de servidor y para mostrarlos dichos archivos para su descarga es suficiente
+      mediante una accion recibir la direccion de la carpeta de servidor y posteriormente los nombres de los archivos en forma de lista
+      para luego recuperarlo esa lista desde la vista y mostrarlos.
+103.- La accion public JsonResult () devuelve un archivo json y si es la accion de tipo get debe llevar si o si return Json("objtoJeson",JsonRequestBehavior.AllowGet);
+      Se trata de una medida de seguridad para evitar que los datos sensibles de ser expuesto a sitios web de terceros, con JsonRequestBehavior.AllowGet.
+      ya podemos ingresar por get ocea por la url a esa accion y como resultado los datos json y si no se pone JsonRequestBehavior.AllowGet
+      dara un error de seguridad. miestras nada de esto pasa si la accion responde a una peticion via post, ademas despues del return debe de llevar la instruccion "Json" 
+      la cual formatea el objeto devuelto en formato json.
+104.- Cuando se desea eliminar toda una tabla desde SQL Server cuya tabla dependa de otra tabla (es decir que la clave primaria de dicha tabla es la clave foranea de otra tabla)
+      o que su clave este como foranea dentro de otra tabla, esta es imposible de eliminar por la misma razon de que su clave primaria esta de foranea dentro de otra tabla
+      o en terminos profecionales "dicha tabla es dependiente de otra tabla" y para su eliminado se debe de eliminar primero sus dependencias yendo a la DB luego en la tabla que
+      se decea eliminar expandimos keys o claves si esta en español de la misma forma con las keys de la tabla que contiene la clave foranea.
+105.- Prácticamente cualquier aplicación o sitio web utiliza las siguientes tres funcionalidades:
+      Configuración, Autenticación y Autorización y Caching. Sin importar el modelo web que se utilice ya sea ASP.NET Web Pages, ASP.NET Web Forms o ASP.NET MVC, se cuenta con el API de ASP.NET.
+      Se cuenta con una serie de clases dentro del namespace System.Web y puede ser implementado de una manera rápida.
+106.- Se utiliza @ de razor siempre y cuando el codigo que se quiere hacer en razor este contenido dentro de cualquier etiqueta de HTML, pero si se hace una apertura de razor
+      se puede escribir codigo c# hasta el final, pero si se abre una etiqueta html y dentro de dicha etiqueta se quire nuevamente escribir codigo c#, pues para eso
+      se debe de abrir nuevamente razor.
+107.- Si permitimos el uso de varios return en medio, entonces podemos reducir el número de if anidados.
+108.- El anidamiento de instrucciones alternativas (if) (else) permite ir descartando valores hasta llegar al bloque de instrucciones que se debe ejecutar.
+109.- Para que un formulario acepte el envio de cualquier tipo de archi como imagenes , archivos etc. Es necesario colocar entre sus atributos la propiedad
+      enctype="multipart/form-data", con esta instruccion acepta el envio de todo tipo de archivos de otra manera se mandara un error incluso en el lado del servidor.
+110.- accept="image/png, .jpeg, .jpg, image/gif" Es un atributo de input typt="file" , lo que hace es validar al momwnto de seleccionar un un archivo de la pc, en este caso solo se vera en la pc
+      los archivos especificados dentro de este atributo, sin enbargo no se debe de confiar en esta validacion ya que podria ser alterada la extension de un archivo y ser subida, se debe hacer la
+      respectiva validacion a lado del servidor.
+111.- Cuando se intenta eliminar o modificar la clave primaria de un registro desde html, cuya clave primaria se encuentra en otra tabla en condicion de clave foranea
+      es decir por ejemplo la tabla "noticia" contiene una clave foranea cuya clave foranea es la clave primaria de la tabla "usuario" entonces al eliminar ese usuario se lanza dos acciones
+      "no action": indica que el eliminado de dicho registro es imposible, luego no se elimina el registro (y se puede indicar en la pagina de que dicho registro no se puede eliminar debido a que
+      dicho usuario publico noticias ) o caso contrario se ejecuta "cascade": que indica que todos los registros de la tabla noticia que contienen como clave foranea la clave primaria de usuarios
+      seran eliminados (luego en la pagina se puede indicar que las noticias publicadas por dichos usuario seran tambien eliminados).
+112.- Se debe tener en cuenta que un @Url.Action no solo lleva dos parametros "accion" y "controlador", sino que tambien puede lleva tres parametros asi:
+      @Url.Action("accion","controlador",new{id=objeto.idUsuario}) donde id es obligatorio de otro modo el framework lanza un error al ir a la url controlador/accion/id (o incluso Url.Action
+      lleva mas sobrecargas)
+113.- Entiendase a una expresion lambda como una funcion o metodo anonima (sin nombre) el cual es um metodo comun y corriente donde recibe parametros y puede o no devolver algun valor ejemplo:
+      x=>x*2 esta es una exprecion lambda donde x es el parametro y el resto el cuerpo de el metodo o se la puede entender como public int multi(x){return x*2} como se observa la expresion lambda
+      lleva menos codigo al ser un metodo anonimo o sin nombre y la sintaxis es mas corta ademas es correcto la frace "Se puede hacer consultas linq con expreciones lambda" ya que las expresiones
+      lambda son independientes de las consultas linq no es necesario utilizar las en un aconsulta linq pero si se las puede utilizar, dicha frace toma el valor de veridico al comparar las dos
+      siguientes consultas.
+114.- Diferencia entre .insertOnSubmit y .add es que el primero pertenece a linq to sql como tal y no aplica a EF mientras .add es nativo de EF ya que 
+      LINQ inició siendo una teconología que servía tanto para consultar objetos en memoria, como para mapear tablas de bases de datos SQL a objetos de memoria. Así que luego de hacer el mapeo, 
+      con nuestro mismo lenguaje de programación sin necesidad de escribir comandos SQL a través de LINQ tendríamos la posibilidad de hacer consultas y manipulaciones sobre estas entidades en memoria 
+      sin mucho problema.Visto esto, observamos que con LINQ tenemos dos alcances: Como lenguaje de consultas integrado y como ORM.
+      LINQ fue primero que EntityFramework; al principio LINQ “quizo” ser el ORM de Microsoft, pero demostró algunas deficiencias en ciertos aspectos como la conexión a distintos repositorios.
+      Luego vino el EntityFramework a mejorar esas cosas en las que LINQ tenía debilidades. Pero OJO! EntityFramework solo se ocupa de las operaciones de un ORM. Y el hecho de que haya aparecido,
+      no significa la desaparición de LINQ, dado que LINQ aparte de tener esas caractarísticas de ORM, es un potente lenguaje de consultas integrado que permite consultar tanto entidades 
+      (como las arrojadas por EntityFramework, el mismo LINQ o cualquier otro ORM), como objetos personalizados, XML, ActiveDirectory y en general cualquier estructura de datos .NET en memoria que 
+      implementen IQueryable 
+115.- El anidar dos o muchos if se la utiliza cuando una opcion puede tener varias alternativas, es decir que no podemos utilizar solo un if y su else por que esto solo sirve para cuando la opcion
+      tiene dos alternativas y si tiene mas es donde entran los if anidados con el objetivo de hacer la consulta y va anidandose hasta que la condicion sea verdadera.
+116.- Para habilitar la eliminacion en cascada ir al diagrama de la DB hacer click derecho en la linea de relacion entre las tablas que se quiere habilitar la eliminacion en cascada, e ir a propiedades
+      en la parte derecha aparecera DELETE Y UPDATE cliclk en esa pestaña y habilitar en cascada (probado en sql server 2014).
+117.- USUARIO user = db.MENSAJES.Find(id);
+      USUARIO user = (from u in db.USUARIO where U.id_Ususario == id select u).SingleOrDefault();
+      USUARIO user = db.USUARIO.Single(u => u.id_Usuario == obj.id_Usuario);
+      USUARIO user = db.USUARIO.FirstOrDefault(u => u.id_Usuario == obj.id_Usuario);
+      Las 4 instrucciones anteriormente mensionadas pertenecen a Linq, y todas brindan el mismo resultado (ni mas ni menos) traendo asi un solo objeto de la tabla USUARIO siendo asi context=contexto USUARIO=tabla
+      find=metodo de busqueda, single=trae un objeto singular, firstOrDefault=el primer objeto de la tabla o el por defecto.
+118.- El termino Scanffolding en asp.net se refiere a la capacidad del framework par crear el crud automaticamente es decir crear acciones y vistas con con entity framework o en termino generales podemos
+      definirlo a scanffolding como "la capacidad de framework de autogenerar codigo que nos hacen la vida mas facil a la hora de programar"
+119.- Se hizo la prueba que dentro de una vista es completamente funcional el uso de cualquier namespace utilizando la palabra reservada using pero antecediendo @ ya que estamos dentro de una vista
+      y para escribir codigo c# es necesario que este con razor. por ejemplo es completamente valido: @using CNSPOTOSI.Models y al utilizar Models el codigo siguiente es completamente valido:
+      		    CNSPOTOSIEntities context = new CNSPOTOSIEntities();
+                    var user = from u in context.USUARIO where u.idUsuario==item.destino select u;
+                    foreach (var o in user)
+                    {
+                        @o.nombre
+                        @o.firstName
+                        @o.lastName
+		    } 
+      este codigo devulve sin muestra sin problemas el nombre y apellidos del objeto.
+120.- "Join" palabra en ingles que significa Unir, se usa amenudo pa unir tablas de sql.
+121.- Ataque XSS, del inglés Cross-site scripting es un tipo de inseguridad informática o agujero de seguridad basado en la explotación de vulnerabilidades del sistema de validación de HTML incrustado.
+      un ejemplo de estos ataques es Javascript Injection, ejemplo: si se tiene un texbox donde se introduce el nombre y posterioemente en el controlador donde se recoje ese nombre devolvemos el mismo nombre
+      como un saludo de bienvendo + nombre esto es cocmpletamente valido y funcional, pero que pasa si el usuario en vez de un nombre introduce codigo javaScript por ejemplo un alert("esto es un ataque"); 
+      lo que sucedera tras enviar en nombre mediante el submit en vez de saludar se ejecutara el alert, esto parece no generar mucha preocupacion pero mediante este tipo de ataques se pueden obtener las cookies
+122.- Es totalmente conveniente trabajar con controles de razor, ya que gracias a ellos tras realizar un submit (editar) y aya fallos (IsValid=false) se pueden recuperar los datos de un objeto dentro los
+      de los campos texBox. si no se la trabaja con controles razor los campos texbox se ponen vacios lo cual puede mandar error si se tiene un campo con atributo display="none" (de css)ya que esta no seria visible
+      y dentro de su campo no ubiera datos y este control seria requerido..lanzaria un error...se podria solucionar sin razor de la siguiente manera (value="@Model.Nombre")
+123.- Master Details--> son todas las operaciones faltanes al crud ..como por ejemplo el stock de productos..obtener reportes entre otros
+124.- Solo la tabla A que contiene la clave foranea de una tabla B , conoce los atributos o campos de la tabla B, y la tabla B no conoce nada de la tabla A
+125.- Una tabla generada gracias a dos tablas (relacion n:m) se podria decir q es la mas importante ya que esta tabla contiene los datos mas importantes y de la que se puede generar los reportes
+126.- Tomar muy en cuenta que para que funcione el ModelState.IsValid, el metodo que lo contiene debe de recibir como parametro un ModelBinding, es decir asi (USUARIO user), y no funciona si los parametros 
+      son por separados por ejemplo asi (string nombre, string apellido), si se hace de esta forma ModelState.IsValid siempre dara falso ya que no existe el ModelBinding
+
+      
+      y manipularlos de forma dañina. para evitar estos ataques se deve incluir en el formulario HTML.Encode el cual se encargara de renderizar el contenido de forma tal que no se ejecuten scripts que alguien pudo ingresar
+      sino como un simple texto plano Nota: si utilizamos el motor de Razor ya no es necesario utilizar HTML.Encode solo era para saber mas de este tio de ataques que no solo se lo puede ver en asp.net 
+      sino que tambien en otras tecnolgias.
+122.- La diferencia de RedirectToAction y Redirect, es que el primero nos lleva a un accion de un controlador pero la segunda nos puede llevar a una pagina incluso de terceros asi:
+      return Redirect("http://" + server + "." + domain);
+123.- TRUNCATE TABLE NombreTabla  Esta intruccion es una query de SQL Server, lo que hace es poner la tabla en cero es decir vacia toda la tabla.
+124.- Membershift es un termino de microsoft la cual hace referencia a una herramienta de asp.net que ayuda a gestionar usuarios por roles dentro de un sistema web. en asp.net mvc 
+125.- en xamarin Android un <LinearLayout></LinearLayout> se la puede considerar como un grupo de vistas ya que cada elemente q contiene dentro de el por ejemplo un boton o un textEdit son considerados
+      cada uno de ellos como vistas.
+126.- por ajax se puede cargar todo un html (vista parcial) conteniendo dentro de ella todos los datos, pero esta practica hace que la pagina responda mas lenta, es mucho mejor enviar directamente al success del ajax
+      los datos en formato Json(allowGet).
+127.- Es completamente posible hacer un return View("Accion","Controlador",new {id=1}) donde id es el tercer parametro de la direccion Url y 1 puede ser cualquier valor, en este caso es el id que ingresa como parametro
+      destro de esta accion.
+128.- el id de un dropdownlist de razor es el se encuentra entre comillas, esto si esque alguna vez lo queremos manipular con jquery y necesitemos saber el nombre de su id de html.
+129.- En un dropdownlist se debe de poner un null antes del String.Empty, para que pueda funcionar una clase de bootstrap de esta forma new {@class="form-control"} de esta forma funcionara bootstrap si no se pone null
+      no funcionara dicha clase.
+130.- var totalMuebles = db.INGRESOMUEBLE.Select(c => c.cantidad).Sum();  esta instruccion devuelve la suma total de la columna cantidad de la tabla INGRESOMUEBLE, sin ningun tipo de condicion (where)
+131.- var suma = db.INGRESOMUEBLE.Where(m => m.id_Mueble == id).Select(s => s.cantidad).Sum(); esta instruccion devulve tambien la suma de la columna 
+      cantidad de tabla INGRESOMUEBLE, pero esta vez con una condicion "solo la suma de cantidad de un determinado mueble"
+      (para saber la cantidad de un determinado mueble y no asi el total de los muebles en general como hace la instruccion anterior)
+      Estas dos instrucciones estan hechas con lambda pero es totalmente posible sin lambda.
+132.- ALTER TABLE ingreso alter column fechaReg datetime not null  -----> codigo desde sql server para q una propiedad acepte nulos
+133.- web Service basados en soap y web servis basados en rest--->ambos son web service....pero los basados en rest son las que mas se acomodan a aplicaciones web
+ya que sus peticiones lo hace por vervos http (get post, put , delete)
+134.- Enable-Migrations  contextTypeName NombreContexto   ----instruccion para habilitar las migraciones en donde NombreContexto debemos especificar el nombre del contexto
+          Add-Migration DetallesDeLaMigracion   ----> instruccion para añadir una migracion (antes de poner este comando ya se debio hacer los cambios en los modelos) lo que hace esta instruccion ademas de añadir
+          es comparar los modelos antiguos con los nuevos modelos es decir con los modelos que ya sufrieron cambios
+          Ubdate-dataBase    ---->y por ultimo esta instruccion lo que hace es actualizar la DB ya haciendo los cambio
+          Ubdate-dataBase -Force -Vervose    -----> Lo que hace esta instruccion es forsar algun cambio que no nos permite debido a que se perderan datos  (solo en algunos casos)
+135.- Cuando se trabaja con Code First es necesario hacer la migracion aun que solo se haya hecho un cambio de dataAnotations en el modelo, en el caso de dataFirst se actualizan solos los dataAnotations
+136.- Las migraciones funcionan unicamente cuando se trabaja con Code First y no asi con los demas opciones de Entity Framework
+137.-Es muy importante saber que ModelState.IsValid trabaja con ModelBinding es decir que ModelState.IsValid devuelve true siempre y cuando el modelo que viene desde la vista con los
+         campos requeridos por los DATAANOTATIONS caso contrario devuelve false....si algunos campos de la clase no estan con [Required] entonces esos no afectan en el ModelState.IsValid
+138.- Se Comprobo que cuando se cambia una propiedad de una clase a [Required] o se elimina [Required] es necesario realizar una migracion por que lanza un error de cambio en la DB
+          pero esto no me sucedio cuando se cambio otros tipos de dataanotations como el [Display(Name="Nombre")] por ejemplo.
+139.-Se combrobo que en ASP.net MVC que las propiedades de nuestros modelos por defecto son requeridos. a ecepcion de las propiedades que son de tipo "string" (estos no son requeridos)
+         entonces por ejemplo como hago que una propiedad de tipo dateTime no sea requerido?La solucion es poniendolo un (?) signo de interrogacion seguido del tipo de dato de esa
+         propiedad asi---> (DateTime?) esta instruccion lo que hace es convertir a esta propiedad de tipo "opcional" es decir que no es requerido, de la misma forma lo podemos declarar
+         en alguna accion de un controlador , como parametro opcional.
+140.-en MVC 5 paso algo raro al editar un registro, lo que paso fue que a pesar de que ya estaba ingresado el campo Codigo de un determinado producto ModelBinding me seguia lanzando error
+         diciendo de que el campo Codigo es requerido (a pesar de que dentro del input ya estaba un codigo, ModelBinding lo veia como si ese input estaria "Vacio").La solucion fue aumentar en campo
+        Codigo dentro del Bind Include asi---> public ActionResult Create([Bind(Include = "id_Prod,id_UnidMed,id_Categoria,NombreProd,"Codigo",EspecificacionProd,FechaReg")] Productos productos
+        ya que el campo Codigo no estaba dentro de Bind Include esto debido a que este contrlador lo cree "antes" de que el modelo tenga un campo Codigo que despues fue creado esto ya con una migracion
+        otra solucion es eliminando todo el Bind Include solo dejando como parametro un objeto de tipo clase---> investigar lo que hace ([Bind(Include
+141.-Sabemos que para generar reportes ya sea por crystal report u otra tecnologia lo primero es crear un dataset y dentro de ella crear un dataTable, las propiedades que tiene esta dataTable
+         deben de tener los "mismos" nombres que las propiedades de la tabla o clase de la que se pretende hacer el reporte , solo asi el dataTable sabe con que propiedades de la clase o tabla se esta enlazando
+         de no ser asi se generara el reporte (ya sea en pdf) pero sera en blanco y solo mostrara los datos de aquellas propiedades del dataTable que coinsidieron con los nombres de la clase o tabla (sql)
+142.-Si se pretende generar un reporte como por ejemplo de tipo master details y obtener en ese reporte los datos de una sola clase o de las clases que esten "directamente relacionados" con esa clase NO es
+         necesario crear una nueva clase ya que se pueden obtener toooooodos los datos de esa clase y ademas los datos de las clases que esten directamente relacionados, PERO si es necesario crear una 
+        nueva clase si el reporte requiere datos de tablas o clases que NO esten directamente relacionados, donde cla clase nueva o creada contenga propiedades de ambos clases de las que se requiere 
+       obtener los datos para el reporte.
+143.- Se comprobo que si se puede tener dos o mas cadenas de conexion, cada una puede gestionar diferentes datos por ejemplo uno que gestione las tablas del membershib
+          y otra cadena de conexion puede gestionar las tablas personales u otras tablas....la idea esta enque ambas tablas pueden apuntar a la misma DB y solo con eso el proyecto puede
+          funcionar de manera normal..ademas se recomienda hestionar la DB de esta manera...ya que esto ayuda mucho al mantenimiento del sistema
+144.- OAuth2 es un protocolo de autorización que permite a terceros, clientes o sistemas, acceder a contenidos propiedad de un usuario, alojados en un servidor de recursos sin que éstos tengan que manejar
+          ni conocer las credenciales del usuario, es decir, usuario y contraseña.
+145.- Al crear una Web Api2 suele surgin un error, y es que al querer consumir esta api ya sea desde cualquier clliente rest como postman u otros, nmos da como resultado
+         un 404 y no asi los objetos JSon que se esperaban, se comprobo que este error se da a que Visual Studio por alguna razon no configura bien el archivo Global.asax, la solucion es agregar
+         la siguinete linea de codigo en el archivo Global.asax    "GlobalConfiguration.Configure(WebApiConfig.Register);"  (sin comillas). y no al final sino en la segunda linea de codigo.
+146.- Cuando se quiere agregar una nueva tabla a la DB mediante code first y dicha tabla tiene una relacion con otra tabla, es totalmente posible que se generen errores con la clave foranea de tipo
+         The ALTER TABLE statement conflicted with the FOREIGN KEY constraint.(error de clave foranea). Esto es devido a que la clave principal de la nueva tabla esta yendo como foranea a la tabla
+          que ya existia es decir a la tabla con la que tiene relacion, y como la tabla antigua aumenta una clave foranea esta clave foranea no puede ser nulo y es ahi donde se genera el error.
+          Para solucionar este error lo que hice es cambiar el codigo que se genera al ejecutar "Add-Migration NombreMigracion" de code first es decir poner dentro del metodo Up el codigo
+          AlterColumn("dbo.Vacunas", "idMascota", c => c.Int(nullable: false)); el cual indica a la tabla antigua que permita nulos en las clave foranea. Este error no se soluciona introduciendo un simple int?
+          dentro de la clase que genera la antigua tabla.Peeeeeeero se comprobo que nada de este error ocurre cuando se agrega un aTabla de la cual su clave primaria no esta como clave foranea
+          dentro de otra tabla antigua.
+147.- La relacion mediante EF codeFirst es de la siguiente manera: por ejemplo cohe-fabrica donde un coche pertenece a una sola fabrica y la fabrica puede tener o generar muchos coches, en este caso
+          la tabla coche es la que le quita el id de la fabrica, por lo tanto en la clase de c# se debe aumentar un atributo con el mismo nombre de la clave principal de la fabrica asi: public int idFabrica { get; set; }
+         ademas el siguente codigo:
+         [JsonIgnore]
+        public virtual Fabrica mascota { get; set; } donde Fabrica es el nombre de la clase con la que se relaciona coche, mascota es solo el nombre del atributo y [JsonIgnore] no es indispensable es solamente
+        para que no genere error cuando se quiere realizar una api para consumir. mientras que a lado de la clase 1(uno) que es la Fabrica solo se debe incrementar el siguiente codigo:
+         public ICollection<Coche> Coche { get; set; } donde Coche es el nombre de la clase que se relaciona y el nombre de este atributo tambien puede llevar el nombre de la misma clase.
+         Esta relacion es de 1:N donde Coche(N) y Fabrica(1) pero los anteriores codigos son aplicables a todos los casos de cardinalidad.
+148.- Se comprobo que para agreagr una nueva Tabla al archivo de contexto (Context) se puede agregar el codigo de forma manual asi public DbSet<Raza> Razas { get; set; } y funciona correctamente,
+         Pero tambien funciona correctamente si no la agregamos, EF lo hace por nosotros agregando el siguiente codigo public System.Data.Entity.DbSet<Zoonosis.Models.Raza> Razas { get; set; }
+         que no es mas que un codigo totalmente equivalente al codigo anterior (al manual), sin embargo este codigo, EF lo introduce DESPUES de haber introducido algun dato a la tabla desde la vista
+         no nos extrañe si EF no lo introduce sin antes agregar un dato a la tabla.
+149.- Se comprobo que un objeto de la clase de nuestro contexto (Context db=new Context) invoca al nombre de la tabla que le dimos en el archivo Context asi: public DbSet<Raza> Razas { get; set; }
+           en este caso si queremos acceder a la DB deberia ser asi db.Razas donde Razas es el nombre que le dimos en el archivo Context
+150.- Al realizar un Update-DataBase de Migrations se me genero este error "El tipo no está resuelto para el miembro 'Npgsql.PostgresException,Npgsql, Version=4.0.2.0" este error solo se me presento
+      al trabajar con Postgres y no asi con SQLServer, Este error es un tanto confuso y no entendible por lo que te puede tomar mucho tiempo en solucionarlo, la forma en la que solucione
+      fue ejecutando en la misma consola de Nuget el comando Install-Package Npgsql el cual es la libreria soporte de Postgres y este comando lo que hace es reinstalar Npgsql y con eso quedo solucionado 
+151.- Tambien se identifico el anterior error al cambiar un tipo bool de una clase a no nulo pero si lo pongo d etipo bool? funciona normalmente Update-DataBase
+      puede tratarse de un bug de Npgsql o una de las razones por las que dio error fue quiza que a Npgsql le pediamos que una campo sea NOT NULL sin embargo dicho campo
+      tenia los valores nulos es decir vacios dentro de postgres.
+152.- Error: no existe relacion 'tabla' este error se da en una consulta de en postgres cuando el nombre de la tabla o de la columna contiene un caracter en mayuscula para solucionar este error
+      dichos nombres se las debe de poner entre comillas, en caso de que los nombres sean todo minusculas no es necesario poner entre comillas (las razones ni idea ).
+153.-Un error que seria dificil de encontrar es cuando el objeto enviado de un formulario a uuna accion siempre llega null, este error es algo dificil de comprender y detectar, este error
+      es generado cuando dentro de una clase existe una propiedad con el mismo nombre de esta clase por ejemplo clase: COMENTARIO propiedad: comentario (tener mucho cuidado en este aspecto)
+      ya modelBinding lo que hace al recibir un paramero de tipo de la clase es buscar las propiedades de dicha clase para validar los dataAnotations y al encontrar el nombre de parametro de la accion
+      con el mismo nombre de una propiedad se genera este error.

@@ -1,0 +1,79 @@
+ANDROID
+1.- En android studio se puede crear un layout independiente es decir sin su archivo java y ademas se le puede llamar a este layout independiente desde un layout principal
+     como si fuera un archivo externo con la etiqueta <include/>
+2.- Las propiedades de un View o elemento de android en el diseño No siempre estan disponibles, esto depende del layout en la que se encuentra un View. Es decir
+     por ejemplo en un linear layout puede existir la propiedad gravity para un determinado view, pero quiza no existiria el gravity si ese view se encuentra en un relativeLayout.
+3.- RecyclerView es similar a un ListView pero mucho mas avanzado y ademas es de material design, a diferencia de un listview el recyclerView tiene tres formas de ordenar 
+     la informacion lo puedes ordenar en forma de lista como lo hace listview, tambien se la puede ordenar en forma de grillas y tambien grilas desordenadas y lo mas importante 
+     un recyclerView muestra la informacion (pueden ser imagenes) de una forma asyncrona es decir va mostrando lo que quepa en pantalla y lo demas va recargando mientras
+     el usuario hace scroll.
+4.- En android 4 o inferiores existia el ActionBar, pero a su llegada de lollipop android 5 tambien llego Toolbar que pretende remplazar a ActionBar ya que es mas comodo y
+     flexible de manipularlo.
+5.-  En el archivo Style es el lugar donde podemos crear mas temas y darle a ese nuevo tema colores tamaños de letras fondo de pantalla etc. y estos temas lo podemos utilizar
+      donde nosotros lo deseemos es decir en cualquier activity por ejemplo depues de un onCreate de cualquier actividad poner el codigo setTheme(R.style.Minuevotema);
+      y esa actividad se mostrara con las caracteristicas que se dieron a ese nuevo tema.
+6.- Se comprobo que cuando creas una toobal con <android.support.v7.widget.Toolbar es decir con material design y luego quieres declarar esa toolbar en tu archivo java
+      NO es suficiente con decirle (Toolbar mi_toolbar;) como se suele hacer cuando no usamos una libreria de material design por que da error , lo que se debe hacer es
+      declarar esa variable de la siguiente forma (android.support.v7.widget.Toolbar mi_toolbar;) ya que es una toolbar compatible con varios versiones de android.
+7.- Es totalmente posible declarar un tipo de View dentro de un archivo .java cuando dicha View se encuentra fuera del layout de dicho archivo .java (es decir como un archivo
+      externo)...PERO siempre y cuando este View es includa dentro del layout perteneciente al archivo .java con la etiqueta <include/>
+8.- Se estudio que para hacer una conexcion o consultas a un gestor de DB desde android, no solo es la alternativa de web services (como entendia) sino que tambien se puede
+      hacer conexiones directas desde android y un gestor de DB (sql server por ejemplo) esto gracias al driver de java llamado JDBC ("Java Data Base Conexion"), esto es buena
+      idea si la app solo va a trabajar en un entorno intranet.
+9.- Las desventajas de utilizar JDBC para hacer peticiones desde internet son varias y no es recomendable utilizarlas ya que se estaria hacien un sistema suicida en cuanto a
+      seguridad y las desventajas son:
+			- Las respuestas a las consultas consumen mas ancho de banda y bateria del dispositvo movil.
+			- Se esta exponiendo toda la DB al mundo, al montarlo en una ip publica,la cual es un gra error de seguridad.
+			- Los proxies generalmente permiten el acceso HTTP a su dispositivo movil, lo cual podria traer consecuencias a la hora de un response
+			 ya que al usar JDBC no se estaria haciendo request de tipo HTTP sino directas.
+			- Inconpatibilidad del JDBC con el el gestor de DB que estes utilizando (no es compatible con todos los gestores pero si con SQL  sever).
+			- JDBC no es capaz de realizar funciones adicionales como Autenticacion, calidad de servicio, autorizacion solicitudes get condicionales
+			  ,manejo de errores etc. pero los WS hacen todas estas tareas (no es para nada aconsejable utilizar JDBC en un entorno web).
+10.- Google recomienda que para realizar un splashScreen No es econsejable utilizar un nuevo activity y darle un tiempo a ese activity para qu pueda desaparecer, lo que Google
+        recomienda es que se debe crear un nuevo tema en la que puede estas la imagen o el logo de la app y llamar a ese tama mientas se inicia la app, esto hace que el 
+        splashScreen tenga un tiempo dinamico ya que este Splash se perdera cuando "realmente la app este lista" y no como un activity que lo unico que hace es simular que la
+        app esta lista sin embargo no es cierto ya que el activity podria desaparecer en 3 segundos por ejemplo y aun asi la app no estaria lista (podria ser por que la app esta 
+        consumiendo web services y en 3 segundos no estaria lista los datos) pero al utilizar un tema el splash esperara hat que los datos lleguen de verdad, ademas Google 
+        recomienda esto no solo por lo mensionado anteriormente sino que la idea de Google es "No hagas esperar al usuario un tiempo determinado para abrir la app".
+11.- Picasso es una lebreria para android que permite cargar imágenes sin problemas en tu aplicación, y lo que es mejor, ¡la gran mayoría de las veces con una sola línea 
+        de código! ademas es capaz de recibir imagenes de diferentes tipos de funetes como desde la web con una url o imagenes desde la memoria local, tambien es capaz de 
+        transformar las imágenes para que encajen mejor en tus layouts y reducir el tamaño en memoria y no solo eso sino que tambien tiene dos metodos de las cuales uno de 
+        ellos permite mostrar una imagen "antes" de que se cargue la imagen real  (pre-descarga) y el otro metodo permite mostrar una imagen en caso de que termine con 
+        un error al cargar la imagen real (post-error) estos dos metodos son muy buenos por ejemplo cuando se esta consumiendo una web service o desde cualquier url.
+12.-Glide es una lebreria para android que permite cargar imágenes sin problemas en tu aplicación, totalmente similar a picasso ya que contiene casi los mismos metodos
+       o propiedades, ademas tiene una particularidad que picasso no tiene y es el de poder cargar imagenes en formato gif y me atrevo a decir que Glide es mas superior a picasso.
+13.- Deserializar es igual a convertir un Json a un objeto puede ser java u C# y Serializar es igual a convertir un objeto a un formato Json.
+14.- error genérico en gdi+ este error se dio al intentar guardar una imagen a una carpeta de servidor y dicho error es muy complicado de encontrar en tiempo de ejecucion ,
+        pero lo solucione dando todos los permisos a la carpeta en la cual se decea guardar la imagen.
+15.- tomese en cuenta que al convertir un bitmap de android a string de base 64 se autogeneran los \n los cuales son saltos de linea  de un string, Peeero al generarse estos 
+        saltos de linea el string ya no es en base 64 sino que un string comun, y al convertir este string nuevamente a imagen ocaciona errores difeciles de detectar,para eliminar
+       los \n podemos utilizar em metodo replace de la clase String de java.
+16.- Caundo se hace un debuger a retrofit no se hace facil el seguimiento de eerrores ya que al momento en que llega al enqueue de retrofit se dispara a otro lugar y no sigue
+       con la siguiente linea de codigo (metodo onResponse) esto debido a que enqueue es asincronico y por ende  no espera a onResponse sino se va a otra linea de codigo.
+17.- findViewById devulve null cuando se quiere acceder a un id de una View que No esta dentro del contexto de la view padre, es decir que el id de la view que queremos acceder
+        esta siendo inflada por la view Padre es la razon que da null y pae ello debemos de generar una nueva view del tipo del view Padre para luego recien accder al id del que se
+        queria acceder de esta forma newView.findViewById donde newView es el view de tipo del Padre. y no se puede hacer directamente findViewById.
+18.-  ¿Que pasa que quiero tener dos api rest con los mismos nombre pero que hagan diferentes tareas? por ejemplo api/mascota/id de la cual quiero obtener una mascota 
+         perteneciente a ese id, pero tambien puedo nesecitar uma lista de mascotas que pertenecen a un dueño que tenga dicho id, entonces en ese caso puede generar errores,
+         para ello se comprovo que es totalmente posible cambiar el nombre del controlador es decir que de (api/mascota/id)podemos cambiar mascota po otro nombre por ejemplo
+         (api/mascotitas/id) y desde android studio lo referenciamos a dicha url. 
+19.- Me tope con el problema de que no se podia inflar setContentView(R.layout.activity_inicio); en el metodo onCreate, al parecer este proble sucede cuando un archivo solo se
+     encontraba en drawable y no en drawablr-v24 creo el error es por las versiones, lo solucione copiando todo los archivos de drawable a drawable-v24
+20.- scrolbars es una propiedad de ScrollView la cual hace que se pierda la barra que baja del scroll, pero esta propiedad SOLO funciona cuando el scrollView es aplicada en 
+     una activity que no sea necesario mostrar el teclado, y NO funciona el scroll cuando se require mostrar el teclado lo que se debe hacer para mostrar el teclado ya la vez
+     desaparecer la barra del scroll se debe añadir android:scrollbarThumbVertical = "@null" en la propiedades del ScrolView.
+21.- Es muy importante al momento de crear una web api con varios parametros que coincidan los nombres de parametros de ruote con los nombres de parametros del metodo como se 
+     puede apreciar en el siguiente ejemplo: caso contrario no se encontrara la direcion de esa api y obviamente generara error 404
+                            [Route("api/verificaLike/{idMascota}/{idDueno}")]
+                            [HttpGet]
+                            public bool verificarLike(int idMascota,int idDueno)
+                            {
+                            }
+22.- Una peticion Post no quiere decir que siempre vendra de un formulario, se puede realizar una peticion post de esta forma localhost:24839/Api/totalLikes/12 esta url es una
+     peticion Post que tranquilamente fuciona por ejemplo desde postman por que postaman en un cliente de peticiones de api Rest , peeeeero esta tipo de peticiones no va a 
+     soportar un navegador como chrome por ejemplo, chrome simplente nos mostrara un error de este tipo The requested resource does not support http method 'GET'. (esta peticion
+      no soporta) el metodo get. solo esta aclaracion para saber que si se puede crear apis de este tipo  es decir de tipo post pero formada en una url
+                            
+                         
+
+     

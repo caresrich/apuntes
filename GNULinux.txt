@@ -1,0 +1,51 @@
+1.- Error dependencias incumplidas al instalar un paquete, para entender este error primerante debemos saber que al momento de realizar una instalacion de un paquete
+    en muchos casos estos paquetes no siempre se necita el paquete en si, si no que nesecita otros paquetes mas de los cuales depente el paquete a instalar hacien
+    una comparacion con windows por ejemplo para instalar algun programa se nececita antes un framework determinado (en el caso de autocad por ejemlo), en ese sentido
+    pasa lo mismo con los paquetes de linux y el error precisamente se debe a que estos complementos o dependencias no estan instalas o por algun motivo estan dañadas
+    o rotas como muestra el error.
+
+2.- nano /etc/apt/sources.list este archivo es el que contiene los repositorios y si por algun caso nos encontramos con algun error de dependencias o actualizaciones
+    como por ejemplo errores al no reconocer sudo o errores al ejecutar apt-get update es debido a que en este archivo no se encuentran los repositorios necesarios
+    y para solucionar una opcion es editar este archivo manualmente con nano copiando en el archivo direcciones de repositorios como este por ejemplo : 
+    deb http://deb.debian.org/debian stretch main
+    
+3.- top ->comando para ver los procesos que se estan ejecutando
+
+4.- which nombrePaquete ->comando para ver en que direccion esta instalado un paquete en el caso de apache2 seria: which apache2
+
+5.- ip -4 a ->comando para ver la ip
+
+6.- w3m es paquete la cual sirve para navegar por internet atravez de la consola, para su uso se debe escribir el comando w3m seguido de la direccion q la que queremos
+    ingresar por ejemplo w3m google.com si queremos ingresar a google, para ingresar otra url shift+u y para salir shift+q.
+    
+7.- poweroff ->comando para apagar la maquina (se la debe ejecutar como root).
+
+8.- para poder ingresar a una maquina por ssh es la suguiente sintaxis ssh nombreUsuario@ipMaquina por ejemplo si quiero imgresar al usuario richard seri lo siguiente
+    ssh richard@192.168.0.110 donde la ip obviamente puede cambiar segun la ip de la maquina de richard.
+    
+9.- nano /etc/network/interfaces ->comando para acceder al archivo de configuracion de ip de una determinada terjeta de red.
+
+10.- nano /etc/apt/sources.list ->comando para accder al archivo de configuracion de repositorios.
+
+11.- Para apagar debian se utiliza el comando "shutdow -h now" el cual apaga inmediatamente,pero en vez de now podemos poner podemos poner un parametro para darle el
+     tiempo de retardo en apagarse por ejemplo en vez de now por "+10" el cual apagara la maquina en 10 minutos o poner directamente la hora por ejemplo "22:30" el 
+     cual apagar el equipo a las 22:30. De la misma forma funciona reiniciar el sistema con la unica diferencia de en vez de utilizar "-h" se debe utilizar "-r". 
+     
+12.- "ssh nombreUsuario@IP" Este comando nos permite ingresar a otro equipo por ssh, donde nombreUsuario es el nombre del usuario que se encuentra en la otra maquina
+     y a la que queremos ingresar y IP es la Ip de la maquina donde se encuentra dicho usuario.
+     
+13.- "scp archivo.txt nombreUsuario@IP:/home/NombreUsuario" Este comando nos permite copiar archivos via ssh, donde :/home/nombreUsuario es la direccion de usuario
+     de la maquina remota a la cual se quiere copiar el archivo.
+    
+14.- "nano /etc/resolv.conf" Comando para acceder al archivo de configuracion de gateway.
+
+15.- "scp nombreUsuario@IP:/home/NombreUsuarioOrigen/archivo.txt /home/nombreUsuarioDestino" Este comando copia un archivo via ssh inversamente del paso 13, es decir
+     primeramente identificamos la direccion del equipo remoto para luego enviarnos ese archivo a nuestro propio host.
+     
+16.- "ssh-keygen -b 4096" Comando para generar clave publica y privada en una determinada direccion para la habilitacion de certificados ssl.
+
+17.- "service network restart" reiniciar servicios de red.
+
+18.- "service ssh restart" reiniciar servicios de ssh.
+
+19.- "apt-get -f install" Este comando en muchos casos soluciona problemas cundo un paquete tiene errores de dependencias al momento de ser instalado.
