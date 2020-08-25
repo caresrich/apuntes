@@ -1,4 +1,4 @@
-ANDROID
+ANDROID CAMBIADO JEJEJEJE
 1.- En android studio se puede crear un layout independiente es decir sin su archivo java y ademas se le puede llamar a este layout independiente desde un layout principal
      como si fuera un archivo externo con la etiqueta <include/>
 2.- Las propiedades de un View o elemento de android en el diseño No siempre estan disponibles, esto depende del layout en la que se encuentra un View. Es decir
