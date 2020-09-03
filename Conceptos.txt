@@ -1,20 +1,20 @@
 1.- El funcionamiento de una session en una pagina web es la siguiente:
-    -Un usuario ingresa sus credenciales (datos que le permiten iniciar sesi髇)
-    -El servidor verifica que las credenciales sean correctas, y crea una sesi髇 (esto puede ser un archivo, un registro nuevo a la DB) 
+    -Un usuario ingresa sus credenciales (datos que le permiten iniciar sesi贸n)
+    -El servidor verifica que las credenciales sean correctas, y crea una sesi贸n (esto puede ser un archivo, un registro nuevo a la DB) 
     -Una cookie con el identificador de session (session ID) es puesta en el navegador web del usuario.
     -En las peticiones siguientes, el session ID es comparado con las sesiones creadas por el servidor.
-    -Una vez que el usuario se desconecta, la sesi髇 es destruida en ambos lados (tanto en el cliente como en el servidor)
+    -Una vez que el usuario se desconecta, la sesi贸n es destruida en ambos lados (tanto en el cliente como en el servidor)
 2.-  Un cookie trabaja similar a una session pero esta no esta creada con el objetivo de realizar autenticacion sino con la finalidad de personalizar la navegacion
     de un usuario, al momento de navegar se crean a lado del cliente (nvegador) muchas coockies guardando informacion entonces en la proxima peticion del usuario
     esta peticion viaja al servidor conteniendo las cookies para que el servidor se de cuenta que paginas habitualmete visita ese usuario para que la respuesta
-    sea mas personalizada, pero esto se convierto un blanco de ataque para los jackers ya que es informacion que viaja hacia el servidor.
+    sea mas personalizada, pero esto se convierto un blanco de ataque para los Hackers ya que es informacion que viaja hacia el servidor.
 1.- Un Token en una medida de autenticacion mucha mas efectiva y segura y el funcionamiento es la siguiente:
-    -Un usuario ingresa sus credenciales (datos que le permiten iniciar sesi髇)
+    -Un usuario ingresa sus credenciales (datos que le permiten iniciar sesi贸n)
     -El servidor verifica que las credenciales sean correctas, y devuelve un token firmado
-    -El token es guardado en el lado del cliente, com鷑mente en el local storage (pero puede guardarse tambi閚 en el session storage o incluso como una cookie)
-    -Las peticiones siguientes al servidor incluyen este token (a trav閟 de un Authorization header o alguno de los otros m閠odos antes mencionados)
-    -El servidor decodifica el JWT y si el token es v醠ido procesa la solicitud
-    -Una vez que el usuario se desconecta, el token es destruido en el lado del cliente (no es necesaria la interacci髇 con el servidor)
+    -El token es guardado en el lado del cliente, com煤nmente en el local storage (pero puede guardarse tambi茅n en el session storage o incluso como una cookie)
+    -Las peticiones siguientes al servidor incluyen este token (a trav茅s de un Authorization header o alguno de los otros m茅todos antes mencionados)
+    -El servidor decodifica el JWT y si el token es v谩lido procesa la solicitud
+    -Una vez que el usuario se desconecta, el token es destruido en el lado del cliente (no es necesaria la interacci贸n con el servidor)
     Por lo tanto un token es mucho mas segura que una session.
 1.- El uso de los JWT (json web token) se popularizo en los ultimos tiempos, esto debido a la aparicion de los SPA (Single page aplication) y el desarrollo en
     diferentes plataformas como aplicacaiones para android o ios, ya que las sessiones no son soportadas por estas plataformas ya que estas plataformas solo hacen
@@ -23,4 +23,4 @@
     datos json con autenticacion tokens que pueden ser consumidas ya sea por un SPA como React.js o una aplicacion android o ios.
 5.- Session=autenticacion con estado, es decir la cookie guarda en numero de id de la session que esta en el servidor para luego ser comparado.
 6.- Token=autenticacion sin estado, es decir el servidor crea una firma y lo envia al navegador para luego en la proxima peticion verifivar dicha firma.
-7.- La escalabilidad de un software es la capacidad del software para adaptarse al creciente n鷐ero de usuario, transacciones, etc
+7.- La escalabilidad de un software es la capacidad del software para adaptarse al creciente n煤mero de usuario, transacciones, etc
