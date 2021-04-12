@@ -1,0 +1,5 @@
+1.- En laravel 8 no funcina directamente el comando php artisan make:auth para instalar el sisteama de 
+    autenticacion de laravel, para activar el sistema de autenticacion de laravel primeramente debemos ejecutar
+    composer require laravel/ui para instalar auth co el comando -> php artisan ui:auth este cambio es debido a
+    que laravel no sabe que libreria fronted quieres utilizar y te da la libertad usar bootstrap u otro.
+2.- 
