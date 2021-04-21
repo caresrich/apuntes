@@ -73,7 +73,10 @@ ANDROID CAMBIADO JEJEJEJE
      peticion Post que tranquilamente fuciona por ejemplo desde postman por que postaman en un cliente de peticiones de api Rest , peeeeero esta tipo de peticiones no va a 
      soportar un navegador como chrome por ejemplo, chrome simplente nos mostrara un error de este tipo The requested resource does not support http method 'GET'. (esta peticion
       no soporta) el metodo get. solo esta aclaracion para saber que si se puede crear apis de este tipo  es decir de tipo post pero formada en una url
-                            
-                         
-
-     
+23.- Una aplicaion android que consume apis, normalmente genera un error cuando se conecta a un servidor que no este con SSL es decir solo http y no https, este error hace
+     referencia a que ór seguridad la app no puede comunicarse con un servidor sin SSL y para solocionar se debe aumentar -->android:usesCleartextTraffic="true" en la etiqueta
+     de <application> dentro del manifest.
+24.- No se debe extrañar que cuando trabajes con google maps la aplicaion ya firmada no muestre los mapas, esto es debido a que en la carpera de relase/res/values no esta la
+     apiKey de google maps, y solamente este en la carpeta debug/res/values que es sufuciente para su desarrollo de la app pero no para firmar, para solucionar debemos poner
+     la pestaña del proyecto en proyesto y no en android para luego buscar la carpeta app/src/relase/res/values y dentro del archivo google_map_api.xml copiar la misma key que
+     esta en la carpeta de debug.

@@ -1,5 +1,12 @@
-1.- En laravel 8 no funcina directamente el comando php artisan make:auth para instalar el sisteama de 
+1.- El comando para iniciar un nuevo proyecto es -> composer create-project laravel/laravel mi-proyecto-laravel
+2.- En laravel 8 no funcina directamente el comando php artisan make:auth para instalar el sisteama de 
     autenticacion de laravel, para activar el sistema de autenticacion de laravel primeramente debemos ejecutar
     composer require laravel/ui para instalar auth co el comando -> php artisan ui:auth este cambio es debido a
     que laravel no sabe que libreria fronted quieres utilizar y te da la libertad usar bootstrap u otro.
-2.- 
+3.- php artisan --version ->para saber la version de laravel que usa tu proyecto (este comando se sebe ejecutar
+    dentro de la carpera del proyecto)
+4.- php --version ->para ver la version de laravel y para ver la version de composer -> composer --version
+5.- para hacer referencia a un archivo ya sea css,js o mostrar una imagen del servidor, es unabuena practica
+    trabajar con {{asset('aqui adentro la direccion del archivo o imagen')}} ya que asset hace refencia a
+    servidor/carpetadeproyecto/public , esto ayuda a que cuando tu carpeta lo subes a un servidor cualquiera
+    no tienes que estar cambiando el nombre del servidor o su ip, asset directamente detecta esa direccion.
